@@ -18,7 +18,7 @@ const delay = time => new Promise(resolve => setTimeout(resolve, time));
 describe('Balloon', () => {
     let defaultWrapper = null;
 
-    beforeEach(function() {
+    beforeEach(function () {
         defaultWrapper = mount(
             <Balloon closable={false} type="normal" trigger={defaultTrigger} triggerType="click">
                 i am balloon content
@@ -26,7 +26,7 @@ describe('Balloon', () => {
         );
     });
 
-    afterEach(function() {
+    afterEach(function () {
         defaultWrapper.unmount();
     });
 
