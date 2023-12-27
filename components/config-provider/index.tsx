@@ -1,5 +1,6 @@
 import { Component, Children } from 'react';
 import * as PropTypes from 'prop-types';
+import { polyfill } from 'react-lifecycles-compat';
 import getContextProps from './get-context-props';
 import {
     config,
@@ -15,7 +16,7 @@ import Consumer from './consumer';
 import ErrorBoundary from './error-boundary';
 import Cache from './cache';
 import datejs from '../util/date';
-import { ConfigProviderProps, ComponentCommonProps, ContextState } from './types';
+import type { ConfigProviderProps, ComponentCommonProps, ContextState } from './types';
 
 const childContextCache = new Cache();
 
@@ -260,4 +261,6 @@ class ConfigProvider extends Component<ConfigProviderProps, Pick<ConfigProviderP
     }
 }
 
-export default ConfigProvider;
+export type { ConfigProviderProps };
+
+export default polyfill(ConfigProvider);

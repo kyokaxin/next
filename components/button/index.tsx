@@ -1,8 +1,16 @@
 import ConfigProvider from '../config-provider';
-import { ButtonProps } from './types';
+import type { ButtonProps, GroupProps } from './types';
 import Button from './view/button';
+import Group from './view/group';
 
-export default ConfigProvider.config(Button, {
+const WithSubButton = Button as typeof Button & {
+    Group: typeof Group;
+};
+WithSubButton.Group = Group;
+
+export type { ButtonProps, GroupProps };
+
+export default ConfigProvider.config(WithSubButton, {
     transform: /* istanbul ignore next */ (props, deprecated) => {
         if ('shape' in props) {
             deprecated('shape', 'text | warning | ghost', 'Button');

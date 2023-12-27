@@ -176,7 +176,8 @@ export interface ParsedContextConfig extends Omit<ConfigProviderProps, 'locale'>
     defaultPropsConfig: DefaultPropsConfig;
 }
 
-export declare class ConfiguredComponent<P, S, R> extends Component<P, S> {
+export declare class ConfiguredComponent<P, R> extends Component<P> {
+    constructor(props: P, context?: unknown);
     getInstance(): R;
     [key: string]: unknown;
 }
